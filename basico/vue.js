@@ -7,11 +7,20 @@ var app = new Vue({
         segundo: 0,
         nombre: '',
         vista: '<p><b>Titulo: </b><i>Ejemplo</i></p>',
-        equipos: ["Barcelona","Liverpool","Bayer","PSG"]
+        equipos: ["Barcelona","Liverpool","Bayer","PSG"],
+        x: 0,
+        y: 0
     },
     methods: {
         mostrarMensaje: function(){
             return "Aprender";
+        },
+        mostrarAlerta: function(mensaje){
+            alert(mensaje);
+        },
+        mostrarUbicacion: function(e){
+            this.x = e.clientX;
+            this.y = e.clientY;
         }
     },
     computed: {
