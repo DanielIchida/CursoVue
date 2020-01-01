@@ -10,13 +10,18 @@
     {{mostrarMensaje()}}
     <br>
     <img :src="imagen">
-    <button :click="primero++">Incrementar el primero</button>
-    <button :click="segundo++">Incrementar el segundo</button>
+    <button @click="primero++">Incrementar el primero</button>
+    <button @click="segundo++">Incrementar el segundo</button>
     <p>Primero: {{primero}}</p>
     <p>Segundo: {{segundo}}</p>
     <p>Suma: {{total}}</p>
     <input type="text" v-model="nombre">
     <h1>{{nombre}}</h1>
+    <h2 v-text="nombre"></h2>
+    <div v-html="vista"></div>
+    <ul>
+        <li v-for="(equipo , i) in equipos"><b>{{i + 1}}</b> - {{equipo}}</li>
+    </ul>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <script src="vue.js"></script>

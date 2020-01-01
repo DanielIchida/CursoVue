@@ -5,7 +5,9 @@ var app = new Vue({
         imagen: "https://vuejs.org/images/logo.png",
         primero: 0,
         segundo: 0,
-        nombre: ''
+        nombre: '',
+        vista: '<p><b>Titulo: </b><i>Ejemplo</i></p>',
+        equipos: ["Barcelona","Liverpool","Bayer","PSG"]
     },
     methods: {
         mostrarMensaje: function(){
