@@ -38,15 +38,19 @@ Vue.component('table-dinamic',{
         this.search = this.rows.filter((item) => {
            console.log(item[row]+" - "+this.objeto[row]);
            return item[row].toString().toLowerCase().startsWith(this.objeto[row].toString().toLowerCase());
-           //return item[row].toLowerCase().indexOf(this.objeto[row].toLowerCase()) >= 0;
         });
+        if(this.objeto[row] === ""){
+           this.numPage = localStorage.getItem("paginacion");
+           this.paginationSelect();
+        }
      },
      paginationSelect: function(){
         this.i = 1;
         this.search = this.rows;
-        this.search = this.search.slice(0,this.numPage)
+        this.search = this.search.slice(0,this.numPage);
         this.paginationNumber = this.rows.length / this.numPage;
         this.paginationNumber = Math.ceil(this.paginationNumber);
+        localStorage.setItem("paginacion",this.numPage);
      },
      botonNumPagination: function (num) {
         this.i = num;
@@ -62,8 +66,6 @@ Vue.component('table-dinamic',{
            this.isDisabledNext = false;
            this.isDisabledPrev = false;
         }
-        console.log(this.paginationNumber);
-        console.log(this.i);
         const indiceInicio = (num - 1) * this.numPage;
         const indiceFinal =  indiceInicio + this.numPage > this.rows.length
             ? this.rows.length
