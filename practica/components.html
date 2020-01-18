@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    checked Checkboxes:
+    <span v-for="item in myCheckBoxModel"> {{ item }}; </span>
+    <ui-checkbox
+            v-for="(option, index) in checkOptions"
+            v-model="myCheckBoxModel"
+            :key="index"
+            :index="index"
+            :input-value="option.value"
+            :label="option.label" />
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script type="text/javascript">
+    Vue.component('ui-checkbox', {
+        props: {
+            label: {
+                type: String,
+                required: true,
+            },
+            index: {
+                type: Number
+            },
+            inputValue: {
+                type: String
+            },
+            value: {
+                type: Array
+            }
+        },
+        methods: {
+            onChange(e) {
+                let currentValue = [...this.value]
+                if (e.target.checked) {
+                    currentValue.push(e.target.value)
+                } else {
+                    currentValue = currentValue.filter(item => item !== e.target.value)
+                }
+                this.$emit('input', currentValue);
+            },
+        },
+        template: `<div>
+        <input
+          :id="index"
+          type="checkbox"
+          :value="inputValue"
+          @change="onChange" />
+        <label :for="index">
+          {{ label }}
+        </label>
+      </div>`,
+    })
+
+    new Vue({
+        el: "#app",
+        data: {
+            checkOptions: [
+                {
+                    label: 'Option 1',
+                    value: 'value of option 1',
+                },
+                {
+                    label: 'Option 2',
+                    value: 'value of option 2',
+                },
+                {
+                    label: 'Option 3',
+                    value: 'value of option 3',
+                },
+                {
+                    label: 'Option 4',
+                    value: 'value of option 4',
+                },
+            ],
+            myCheckBoxModel: []
+        }
+    })
+</script>
+</body>
+</html>
