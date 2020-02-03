@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Graficos</title>
+    <link rel="stylesheet" href="lib/c3.min.css">
+</head>
+<body>
+<div id="graficos">
+    <!--<grafico-estadisticos id="line" :columnas="listado" tipo="spline"></grafico-estadisticos>-->
+    <grafico-estadisticos id="pie" :columnas="piedata" tipo="pie" :colores="colores"></grafico-estadisticos>
+    <!--<grafico-estadisticos id="area" :columnas="listado" tipo="area"></grafico-estadisticos>-->
+</div>
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script src="lib/c3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script type="text/javascript" src="index.js"></script>
+</body>
+</html>
