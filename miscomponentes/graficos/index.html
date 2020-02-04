@@ -7,9 +7,10 @@
 </head>
 <body>
 <div id="graficos">
-    <!--<grafico-estadisticos id="line" :columnas="listado" tipo="spline"></grafico-estadisticos>-->
-    <grafico-estadisticos id="pie" :columnas="piedata" tipo="pie" :colores="colores"></grafico-estadisticos>
-    <!--<grafico-estadisticos id="area" :columnas="listado" tipo="area"></grafico-estadisticos>-->
+    <grafico-estadisticos id="line" :columnas="listado" tipo="spline" :colores="colores"></grafico-estadisticos>
+    <grafico-estadisticos id="pie" :columnas="piedata" tipo="pie" :colores="colores" @click="mensaje"></grafico-estadisticos>
+    <grafico-estadisticos id="area" :columnas="listado" tipo="area" :colores="colores"></grafico-estadisticos>
+    <grafico-estadisticos id="bar" :columnas="piedata" tipo="bar" :colores="colores" :size="size"></grafico-estadisticos>
 </div>
 <script src="https://d3js.org/d3.v5.min.js"></script>
 <script src="lib/c3.min.js"></script>
