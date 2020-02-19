@@ -12,8 +12,9 @@
 </head>
 <body>
 <div class="container" id="app">
+    <button @click="cambiarData">Cambiar Data</button>
     <div class="row">
-        <data-table :titles="titulos" :datalist="data" :button="botones" @delete="borrar" @update="actualizar"></data-table>
+        <data-table :titles="titulos" :datalist="data" :button="botones" :id="identificador" @delete="borrar" @update="actualizar"></data-table>
     </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
